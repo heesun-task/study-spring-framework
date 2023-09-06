@@ -1,7 +1,16 @@
 package com.hs.springboot.learnjpaandhibernate.course;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Course {
+
+    @Id
     private long id;
+
+//    @Column(name="name") // If the column name is same as the field name, then we don't need to specify the column name.
     private String name;
     private String author;
 
