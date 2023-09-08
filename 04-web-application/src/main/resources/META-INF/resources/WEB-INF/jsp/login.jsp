@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Login ${name}</h1>
+<%--    <h1>Login ${name}</h1>--%>
+    <form method="post">
+        <fieldset>
+            <legend>Login</legend>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Login</button>
+        </fieldset>
+    </form>
 </body>
 </html>
