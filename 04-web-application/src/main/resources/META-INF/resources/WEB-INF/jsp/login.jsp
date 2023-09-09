@@ -9,11 +9,12 @@
 </head>
 <body>
 <%--    <h1>Login ${name}</h1>--%>
+    <pre>${errorMessage}</pre>
     <form method="post">
         <fieldset>
             <legend>Login</legend>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name">
+            <label for="username">Name</label>
+            <input type="text" id="username" name="username">
             <label for="password">Password</label>
             <input type="password" id="password" name="password">
             <button type="submit">Login</button>

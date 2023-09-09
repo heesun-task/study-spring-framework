@@ -11,7 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController {
 
-//    private Logger logger = LoggerFactory.getLogger(getClass());
+    private AuthenticationService authenticationService;
+
+    public LoginController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+    //    private Logger logger = LoggerFactory.getLogger(getClass());
 //
 //    @RequestMapping("/login")
 //    public String loginPage(@RequestParam String name, ModelMap model) {
@@ -25,9 +30,15 @@ public class LoginController {
         return "login";
     }
     @RequestMapping(value="/login", method= RequestMethod.POST)
-    public String welcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
-        model.put("name", name);
-        model.put("password", password);
-        return "welcome";
+    public String welcomePage(@RequestParam String username, @RequestParam String password, ModelMap model) {
+        if (authenticationService.authenticate(username, password)) {
+            model.put("username", username);
+            model.put("password", password);
+
+            return "welcome";
+
+        }
+        model.put("errorMessage", "Invalid Credentials");
+        return "login";
     }
 }
