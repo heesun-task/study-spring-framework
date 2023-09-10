@@ -5,12 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>welcome</title>
+    <title>List Todos Page</title>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <p>username: ${username}</p>
-    <p>password: ${password}</p>
-    <a href="/list-todos">Todos</a>
+    <h1>List Todos Page</h1>
+    <p>${username} Todos are ${todos}</p>
 </body>
 </html>
