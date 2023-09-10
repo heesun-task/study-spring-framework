@@ -13,30 +13,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>List Todos Page</h1>
-<%--        <p>${username} Todos are ${todos}</p>--%>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>Description</th>
-                <th>Target Date</th>
-                <th>Is Done?</th>
-            </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${todos}" var="todo">
-                    <tr>
-                        <td>${todo.id}</td>
-                        <td>${todo.description}</td>
-                        <td>${todo.targetDate}</td>
-                        <td>${todo.done}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        <a href="add-todo" class="btn btn-primary">Add todo</a>
-    </div>
+<div class="container">
+    <h1>Add-todo</h1>
+
+    <form method="post">
+        <p>
+            Description: <input type="text" name="description" />
+        </p>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+
+
+</div>
 </body>
 </html>

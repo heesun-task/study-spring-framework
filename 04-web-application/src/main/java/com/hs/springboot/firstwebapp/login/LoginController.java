@@ -21,18 +21,19 @@ public class LoginController {
     //    private Logger logger = LoggerFactory.getLogger(getClass());
 //
 //    @RequestMapping("/login")
-//    public String loginPage(@RequestParam String name, ModelMap model) {
+//    public String showLoginPage(@RequestParam String name, ModelMap model) {
 //        model.put("name", name);
 //        logger.debug("Request param is {}", name);
 //        return "login";
 //    }
 
     @RequestMapping(value="/login", method= RequestMethod.GET)
-    public String loginPage() {
+    public String showLoginPage() {
         return "login";
     }
+
     @RequestMapping(value="/login", method= RequestMethod.POST)
-    public String welcomePage(@RequestParam String username, @RequestParam String password, ModelMap model) {
+    public String showWelcomePage(@RequestParam String username, @RequestParam String password, ModelMap model) {
         if (authenticationService.authenticate(username, password)) {
             model.put("username", username);
             model.put("password", password);
