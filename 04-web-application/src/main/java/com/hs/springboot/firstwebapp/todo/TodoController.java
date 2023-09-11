@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.time.LocalDate;
@@ -27,21 +28,27 @@ public class TodoController {
         return "list-todos";
     }
 
-    @RequestMapping(value="/add-todos", method= RequestMethod.GET)
+    @RequestMapping(value="/add-todo", method= RequestMethod.GET)
     public String showAddTodoPage(ModelMap model) {
 
         String username = (String) model.get("username");
         Todo todo = new Todo(0, username, "Default Description", LocalDate.now(), false);
         model.put("todo", todo);
-        return "add-todos";
+        return "add-todo";
     }
-    @RequestMapping(value="/add-todos", method= RequestMethod.POST )
+    @RequestMapping(value="/add-todo", method= RequestMethod.POST )
     public String addNewTodo(ModelMap model, @Valid Todo todo, BindingResult result) {
         if(result.hasErrors()) {
-            return "add-todos";
+            return "add-todo";
         }
         String username = (String) model.get("username");
         todoService.addTodo(username, todo.getDescription(), LocalDate.now().plusYears(1), false);
+        return "redirect:/list-todos";
+    }
+
+    @RequestMapping(value="/delete-todo")
+    public String deleteTodo(@RequestParam int id) {
+        todoService.deleteTodoById(id);
         return "redirect:/list-todos";
     }
 }

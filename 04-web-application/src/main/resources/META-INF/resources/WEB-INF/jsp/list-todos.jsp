@@ -23,6 +23,7 @@
                 <th>Description</th>
                 <th>Target Date</th>
                 <th>Is Done?</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -32,11 +33,12 @@
                         <td>${todo.description}</td>
                         <td>${todo.targetDate}</td>
                         <td>${todo.isDone}</td>
+                        <td><a href="delete-todo?id=${todo.id}" class="btn btn-warning">DELETE ${todo.id}</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-        <a href="add-todos" class="btn btn-primary">Add todo</a>
+        <a href="add-todo" class="btn btn-primary">Add todo</a>
     </div>
 </body>
 </html>
