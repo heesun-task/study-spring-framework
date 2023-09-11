@@ -1,21 +1,24 @@
 package com.hs.springboot.firstwebapp.todo;
 
 import java.time.LocalDate;
+import jakarta.validation.constraints.Size;
 
 public class Todo {
 
     private int id;
     private String username;
+
+    @Size(min=10, message="Please enter at least 10 Characters.")
     private String description;
     private LocalDate targetDate;
     private boolean isDone;
 
-    public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
+    public Todo(int id, String username, String description, LocalDate targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
         this.description = description;
         this.targetDate = targetDate;
-        this.isDone = done;
+        this.isDone = isDone;
     }
 
     public int getId() {
@@ -50,11 +53,11 @@ public class Todo {
         this.targetDate = targetDate;
     }
 
-    public boolean isDone() {
+    public boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(boolean isDone) {
+    public void setIsDone(boolean isDone) {
         this.isDone = isDone;
     }
 

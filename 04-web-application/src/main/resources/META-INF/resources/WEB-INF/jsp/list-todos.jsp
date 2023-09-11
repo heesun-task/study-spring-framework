@@ -31,12 +31,12 @@
                         <td>${todo.id}</td>
                         <td>${todo.description}</td>
                         <td>${todo.targetDate}</td>
-                        <td>${todo.done}</td>
+                        <td>${todo.isDone}</td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
-        <a href="add-todo" class="btn btn-primary">Add todo</a>
+        <a href="add-todos" class="btn btn-primary">Add todo</a>
     </div>
 </body>
 </html>
